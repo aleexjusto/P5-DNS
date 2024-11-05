@@ -11,8 +11,9 @@ services:
     image: internetsystemsconsortium/bind9:9.18
     container_name: bind9-serveralex
     ports:
-      - "54:53/tcp"
-      - "54:53/udp"
+      - 54:53/tcp
+      - 54:53/udp
+      - 127.0.0.1:953:953/tcp
     restart: unless-stopped
 ``` 
 

@@ -13,18 +13,10 @@ services:
     ports:
       - "54:53/tcp"
       - "54:53/udp"
-      - "172.18.0.1:953:953/tcp"
-    volumes:
-      - ./etc-bind:/etc/bind
-      - ./var-lib-bind:/var/lib/bind
-      - ./var-cache-bind:/var/cache/bind
-      - ./var-log:/var/log
-    environment:
-      - TZ=Europe/Madrid
     restart: unless-stopped
 ``` 
 
-O apartado version indica a version do docker compose, neste caso a versión 3, services defina o servicio que emprego, neste  caso bind9, onde dentro del poñemos o seguinte: a imaxe de bind9; xunto o nome do contenedor; os portos que empreguei, neste caso os portos 54 para consultas; e os volumes empregados.
+O apartado version indica a version do docker compose, neste caso a versión 3, services defina o servicio que emprego, neste  caso bind9, onde dentro del poñemos o seguinte: a imaxe de bind9; xunto o nome do contenedor; os portos que empreguei(na miña maquina non me deixaba a 53), neste caso os portos 54 para consultas; e nesta practica non empreguei volumes.
 
 Unha vez configurado todos os arquivos, temos que empregar o comando `docker compose up`, onde aparecera o seguinte
 
@@ -35,4 +27,4 @@ Attaching to bind9-server
 bind9-server exited with code 1
 ```
 
-Ahora comprobaremos, empregando o comando `dig @172.18.0.1`, onde poremos a nosa ip .
+Ahora comprobaremos, empregando o comando `dig @direccion_ip`, onde poremos a nosa ip .
